@@ -16,7 +16,7 @@ variable "configuration" {
   type        = any
 }
 
-variable "azurerm_resource_group" {
+variable "resource_group" {
   description = "(Required) The Azure Resource Group resource."
   type        = any
 }
@@ -41,6 +41,12 @@ variable "override_name" {
   description = "(Optional) Override the name of the resource. Under normal circumstances, it should not be used."
   type        = string
   default     = null
+}
+
+variable "override_location" {
+  description = "(Optional) Override the location of the resource. Under normal circumstances, it should not be used."
+  default     = null
+  type        = string
 }
 
 variable "tags" {
