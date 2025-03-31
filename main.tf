@@ -1,11 +1,13 @@
 locals {
-  name     = var.override_name == null ? "${lower(var.system_short_name)}-${lower(var.app_name)}-${lower(var.environment)}-ag" : var.override_name
-  location = var.override_location == null ? var.resource_group.location : var.override_location
+  name = var.override_name == null ? "${lower(var.system_short_name)}-${lower(var.app_name)}-${lower(var.environment)}-ag" : var.override_name
+
+  # Monitor action groups must be located in "Global" (default) to be triggered by alerts
+  #location = var.override_location == null ? var.resource_group.location : var.override_location
 }
 
 resource "azurerm_monitor_action_group" "monitor_action_group" {
-  name                = local.name
-  location            = local.location
+  name = local.name
+  #location            = local.location
   resource_group_name = var.resource_group.name
   short_name          = "${title(substr(var.system_short_name, 0, 2))}${title(substr(var.app_name, 0, 6))}${title(substr(var.environment, 0, 4))}"
 

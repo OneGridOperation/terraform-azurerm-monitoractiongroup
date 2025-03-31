@@ -43,11 +43,11 @@ variable "override_name" {
   default     = null
 }
 
-variable "override_location" {
-  description = "(Optional) Override the location of the resource. Under normal circumstances, it should not be used."
-  default     = null
-  type        = string
-}
+#variable "override_location" {
+#  description = "(Optional) Override the location of the resource. Under normal circumstances, it should not be used."
+#  default     = null
+#  type        = string
+#}
 
 variable "tags" {
   description = "(Optional) A mapping of tags to assign to the resource."
